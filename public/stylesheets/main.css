@@ -1,0 +1,29 @@
+.thumbnail .img-responsive
+{
+	width: 100%;
+}
+
+
+.col-md-8 .thumbnail{
+	padding: 0px;
+}
+.thumbnail .caption-full
+{
+	padding: 14px;
+}
+
+.thumbnail form{
+	display: inline-block;
+}
+.get-me{
+	display: inline-block;
+}
+
+.well .row{
+	padding-bottom: 13px;
+}
+
+.text-center img{
+	height: 130px;
+	width: 237px;
+}

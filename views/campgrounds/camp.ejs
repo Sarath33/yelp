@@ -1,0 +1,41 @@
+<%- include ("../partials/header.ejs") %>
+
+<div class="container">
+	
+<header class="jumbotron">
+	<div class="container">
+	<h1>
+		WELCOME TO YELPCAMP
+	</h1>
+	<a  class="btn btn-primary" href="/camp/new">go back</a>
+	</div>
+</header>
+<h5>
+	
+</h5>
+	
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+	
+	<% obj.forEach(function(objw){ %>
+	
+		<div class="col-md-3 col-sm-6">
+			<div class="thumbnail" >
+					<img src="<%= objw.image %>" >
+			<div >
+                       <h5><%= objw.title %></h5>
+               </div>   
+				<p>
+					<a class="btn btn-primary" href="/camp/<%= objw._id %>" >click</a>
+				</p>
+			</div>
+		</div>
+	<% }) %>
+
+</div>
+</div>
+
+	
+	
+	
+
+<%- include ("../partials/footer.ejs") %>

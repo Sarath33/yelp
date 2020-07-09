@@ -1,0 +1,110 @@
+
+<%- include ("../partials/header.ejs") %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<h2> YELP CAMP </h2>
+			<ul class="list-group">
+				<li class="list-group-item">part1</li>
+				<li class="list-group-item">part2</li>
+				<li class="list-group-item">part3</li>
+			</ul>
+				
+			
+		</div>
+		<div class="col-md-8">
+	
+<div class="thumbnail">
+	<img class="img-responsive" src="<%= obj.image %>" >
+	<div class="caption-full">
+		<h4 class="pull-right">
+			$<%=obj.price%>/night
+		</h4>
+		<h4>
+			<a><%=obj.title%></a>
+		</h4><p><%=obj.description%></p>
+		<p>
+		Submitted by <%= obj.author.username %>
+		</p>
+		<% if(User && obj.author.id.equals(User._id)) {%>
+		<a class="btn btn-warning" href="/camp/<%=obj._id%>/edit">EDIT</a>
+		<form action="/camp/<%=obj._id%>?_method=DELETE" method="POST">
+			  <button class="btn btn-danger">
+				  Delete
+			</button>
+		</form>
+      <% } %>
+	</div>
+</div>
+
+<div class="well">
+	<div class="text-right">
+		<a class="btn btn-success" href="/camp/<%=obj._id%>/comments/new">Add Comment</a>
+	</div>
+	<hr>
+	<p>
+	<% obj.comments.forEach(function(comment){ %>
+	<div class="row">
+		<div class="col-md-12">
+
+			<strong><%= comment.author.username %></strong>
+				
+			<span class="pull-right">10 days ago</span>
+			<p>
+				
+			</p>
+			<div>
+				<%= comment.text %>
+				
+				<form class="pull-right get-me"  action="/camp/<%=obj._id%>/comment/<%=comment._id %>?_method=DELETE" method="POST">
+				<% if(User && comment.author.id.equals(User._id)) {%>
+				<a  class="btn btn-xs btn-warning " href="/camp/<%=obj._id%>/comment/<%=comment._id %>/edit" >Edit</a>
+		
+			
+				<input type="submit" class=" btn btn-xs btn-danger" value="Delete">
+			
+			
+				<% } %>
+			</form>
+				
+			
+			</div>
+			
+			
+			
+			
+				
+			
+			
+			
+			
+		
+		
+			
+	
+		
+		</div>
+	</div>
+		          
+		
+	<% }) %>
+
+			</div>
+	
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+
+	
+
+<%- include ("../partials/footer.ejs") %>
