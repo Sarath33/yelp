@@ -20,7 +20,10 @@ var indexRoutes = require('./routes/index'),
 
 
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp",{useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://yelp:HIUtp2l4WxPGRxkj@yelp.kmvtt.mongodb.net/yelp?retryWrites=true&w=majority",{useNewUrlParser: true,useUnifiedTopology: true, useCreateIndex: true}).then(()=>{
+	console.log("connected")}).catch(err =>{
+	console.log("err"+err.message);
+});
 
 open.use(bodyparser.urlencoded({extended: true}));
 
