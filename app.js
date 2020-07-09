@@ -66,6 +66,6 @@ open.use(commentRoutes);
 
 
 
-open.listen(3000,function(){
-	console.log("connected");
-})
+open.listen(process.env.PORT, process.env.IP, function(){
+   console.log("The YelpCamp Server Has Started!");
+});
